@@ -16,7 +16,6 @@ logging.basicConfig(filename='rsa_app.log', level=logging.INFO,
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """
     try:
-        # PyInstaller creates a temp folder and stores the path in _MEIPASS
         base_path = sys._MEIPASS
     except AttributeError:
         base_path = os.path.abspath(".")
@@ -29,7 +28,7 @@ class RSAEncryptionGUI(QMainWindow):
         self.initUI()
         self.current_theme = 'dark'
         self.key_size = 2048
-        self.generate_keys()  # Ensure this is called after initialization
+        self.generate_keys()
 
     def initUI(self):
         self.setStyleSheet(self.dark_theme())
